@@ -4,7 +4,7 @@ The base library can be found here: https://github.com/fizyr/keras-retinanet. Se
 
 ## Installation
 
-Using `pip3` version 19 or greater: `pip3 install -e git+https://github.com/NewKnowledge/object-detection#egg=object-detection`
+Using `pip3` version 19 or greater: `pip3 install -e git+https://github.com/NewKnowledge/object-detection-d3m-wrapper#egg=object-detection-d3m-wrapper`
 
 ## Pipeline input
 
