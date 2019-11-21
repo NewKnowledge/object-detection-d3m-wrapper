@@ -1,0 +1,1 @@
+from objectDetectionD3MWrapper.wrapper import ObjectDetectionRNPrimitive

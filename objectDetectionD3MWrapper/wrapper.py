@@ -120,13 +120,13 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
             'name': 'Sanjeev Namjoshi',
             'contact': 'mailto:sanjeev@yonder.co',
             'uris': [
-                'https://github.com/NewKnowledge/object-detection'
+                'https://github.com/NewKnowledge/object-detection-d3m-wrapper'
             ],
         },
        'installation': [
             {
                 'type': 'PIP',
-                'package_uri': 'git+https://github.com/NewKnowledge/object-detection.git@{git_commit}#egg=object-detection'.format(
+                'package_uri': 'git+https://github.com/NewKnowledge/object-detection-d3m-wrapper.git@{git_commit}#egg=objectDetectionD3MWrapper'.format(
                     git_commit = utils.current_git_commit(os.path.dirname(__file__)),)
             },
             {
