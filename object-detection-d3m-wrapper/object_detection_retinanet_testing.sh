@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
-Datasets=('30_personae','196_autoMpg','185_baseball','26_radon_seed','38_sick','4550_miceProtein','LL0_207_autoPrice','57_hypothyroid','1491_one_hundred_plants_margin','LL0_acled_reduced','LL0_1100_popularkids')
+Datasets=('LL1_penn_fudan_pedestrian', 'LL1_tidy_terra_panicle_detection')
 
-cd "/src/dataclean/DatacleaningD3MWrapper/"
+cd "/src/objectDetection/object-detection-d3m-wrapper/"
 
 # create text file to record scores and timing information
 touch pipeline_tests/scores.txt
@@ -11,7 +11,7 @@ echo "DATASET, SCORE, EXECUTION TIME" >> pipeline_tests/scores.txt
 for i in "${Datasets[@]}"; do
 
     # generate and save pipeline
-    python3 "/src/dataclean/DatacleaningD3MWrapper/pipeline.py" $i
+    python3 "/src/objectDetection/object-detection-d3m-wrapper/pipeline.py" $i
 
     # test and score pipeline    
     start=`date +%s`
@@ -25,7 +25,7 @@ for i in "${Datasets[@]}"; do
     # cleanup temporary file
     mv *.json pipeline_tests/${i}_pipeline.json
     mv ${i}_pipeline_run.yaml pipeline_tests/${i}_pipeline_run.yaml
-    cp "/src/dataclean/DatacleaningD3MWrapper/pipeline.py" "/src/dataclean/DatacleaningD3MWrapper/pipeline_tests/${i}_pipeline.py"
+    cp "/src/objectDetection/object-detection-d3m-wrapper/pipeline.py" "/src/objectDetection/object-detection-d3m-wrapper/pipeline_tests/${i}_pipeline.py"
     rm *.meta
     rm scores.csv  
 done
