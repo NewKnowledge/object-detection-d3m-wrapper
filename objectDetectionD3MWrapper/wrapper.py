@@ -10,9 +10,9 @@ import tensorflow as tf
 import pandas as pd
 import numpy as np
 
-import layers  
-import losses
-import models
+from object_detection_retinanet import layers  
+from object_detection_retinanet import losses
+from object_detection_retinanet import models
 
 from collections import OrderedDict
 
@@ -21,15 +21,15 @@ from d3m.container import DataFrame as d3m_DataFrame
 from d3m.metadata import base as metadata_base, hyperparams, params
 from d3m.primitive_interfaces.base import PrimitiveBase, CallResult
 
-from callbacks import RedirectModel
-from callbacks.eval import Evaluate
-from utils.eval import evaluate
-from models.retinanet import retinanet_bbox
-from preprocessing.csv_generator import CSVGenerator
-from utils.anchors import make_shapes_callback
-from utils.model import freeze as freeze_model
-from utils.gpu import setup_gpu
-from utils.image import read_image_bgr, preprocess_image, resize_image
+from object_detection_retinanet.callbacks import RedirectModel
+from object_detection_retinanet.callbacks.eval import Evaluate
+from object_detection_retinanet.utils.eval import evaluate
+from object_detection_retinanet.models.retinanet import retinanet_bbox
+from object_detection_retinanet.preprocessing.csv_generator import CSVGenerator
+from object_detection_retinanet.utils.anchors import make_shapes_callback
+from object_detection_retinanet.utils.model import freeze as freeze_model
+from object_detection_retinanet.utils.gpu import setup_gpu
+from object_detection_retinanet.utils.image import read_image_bgr, preprocess_image, resize_image
 
 Inputs = container.pandas.DataFrame
 Outputs = container.pandas.DataFrame
@@ -120,7 +120,7 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
             'name': 'Sanjeev Namjoshi',
             'contact': 'mailto:sanjeev@yonder.co',
             'uris': [
-                'https://github.com/NewKnowledge/object-detection-d3m-wrapper'
+                'https://github.com/NewKnowledge/object-detection-d3m-wrapper',
             ],
         },
        'installation': [
@@ -133,7 +133,7 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
             'type': "FILE",
             'key': "resnet50",
             'file_uri': "http://public.datadrivendiscovery.org/ResNet-50-model.keras.h5",
-            'file_digest': "0128cdfa3963288110422e4c1a57afe76aa0d760eb706cda4353ef1432c31b9c" # TBD 
+            'file_digest': "0128cdfa3963288110422e4c1a57afe76aa0d760eb706cda4353ef1432c31b9c" 
             }
         ],
         #'algorithm_types': [metadata_base.PrimitiveAlgorithmType.RETINANET_CONVOLUTIONAL_NEURAL_NETWORK],
