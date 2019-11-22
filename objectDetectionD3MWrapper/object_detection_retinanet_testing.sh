@@ -10,7 +10,8 @@ echo "DATASET, SCORE, EXECUTION TIME" >> pipeline_tests/scores.txt
 
 for i in "${Datasets[@]}"; do
 
-    # generate and save pipeline    python3 "/src/objectDetection/objectDetectionD3MWrapper/pipeline.py" $i
+    # generate and save pipeline    
+    python3 "/src/objectDetection/objectDetectionD3MWrapper/pipeline.py" $i
 
     # test and score pipeline
     start=`date +%s`
