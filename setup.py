@@ -7,7 +7,7 @@ setup(
     author            = 'Sanjeev Namjoshi',
     author_email      = 'sanjeev@yonder.co',
     packages          = ['objectDetectionD3MWrapper'],
-    install_requires  = ["object-detection-retinanet @ git+https://github.com/NewKnowledge/object-detection-retinanet.git@dcfdb2442564893a92a0ba0eb0aac9958a28f59d#egg=object-detection-retinanet"],                        
+    install_requires  = ["object_detection_retinanet @ git+https://github.com/NewKnowledge/object-detection-retinanet@48d70841d51ff44754f355f9157d0bf454aec736#egg=object_detection_retinanet"],                        
     entry_points      = {
         'd3m.primitives': [
             'object_detection.retinanet_convolutional_neural_network = objectDetectionD3MWrapper:ObjectDetectionRNPrimitive'

@@ -1,1 +1,1 @@
-object-detection-retinanet@ git+https://github.com/NewKnowledge/object-detection-retinanet.git@dcfdb2442564893a92a0ba0eb0aac9958a28f59d#egg=object-detection-retinanet
+object_detection_retinanet@ git+https://github.com/NewKnowledge/object-detection-retinanet@48d70841d51ff44754f355f9157d0bf454aec736#egg=object_detection_retinanet
