@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-Datasets=('LL1_penn_fudan_pedestrian', 'LL1_tidy_terra_panicle_detection')
+Datasets=('LL1_penn_fudan_pedestrian' 'LL1_tidy_terra_panicle_detection')
 
 cd "/src/objectDetection/objectDetectionD3MWrapper/"
 
@@ -15,7 +15,7 @@ for i in "${Datasets[@]}"; do
 
     # test and score pipeline
     start=`date +%s`
-    python3 -m d3m runtime -d /datasets/ fit-score -p *.json -i /datasets/seed_datasets_current/$i/TRAIN/dataset_TRAIN/datasetDoc.json -t /datasets/seed_datasets_current/$i/TEST/dataset_TEST/datasetDoc.json -a /datasets/seed_datasets_current/$i/SCORE/dataset_TEST/datasetDoc.json -r /datasets/seed_datasets_current/$i/${i}_problem/problemDoc.json -O ${i}_pipeline_run.yaml -c scores.csv
+    python3 -m d3m runtime -d /datasets/ -v ~ fit-score -p *.json -i /datasets/seed_datasets_current/$i/TRAIN/dataset_TRAIN/datasetDoc.json -t /datasets/seed_datasets_current/$i/TEST/dataset_TEST/datasetDoc.json -a /datasets/seed_datasets_current/$i/SCORE/dataset_SCORE/datasetDoc.json -r /datasets/seed_datasets_current/$i/${i}_problem/problemDoc.json -O ${i}_pipeline_run.yaml -c scores.csv
     end=`date +%s`
     runtime=$((end-start))
     
