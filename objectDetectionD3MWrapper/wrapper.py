@@ -382,6 +382,9 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
         start_time = time.time()
         print('Starting training...', file = sys.__stdout__)
 
+        sample = next(train_generator)
+        print(sample, file = __sys.stdout__)
+
         self.training_model.fit_generator(
             generator = train_generator,
             steps_per_epoch = self.hyperparams['n_steps'],
