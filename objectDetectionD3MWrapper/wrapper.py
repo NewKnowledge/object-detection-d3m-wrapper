@@ -10,7 +10,7 @@ import tensorflow as tf
 import pandas as pd
 import numpy as np
 
-from tensorflow.python.framework.ops import disable_eager_execution
+import tensorflow.python.framework.ops import disable_eager_execution
 disable_eager_execution()
 
 from object_detection_retinanet import layers  
