@@ -219,7 +219,7 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
         """
         callbacks = []
 
-        callbacks.append(callbacks.ReduceLROnPlateau(
+        callbacks.append(keras.callbacks.ReduceLROnPlateau(
             monitor   = 'loss',
             factor    = 0.1,
             patience  = 2,
