@@ -34,6 +34,9 @@ from object_detection_retinanet.utils.model import freeze as freeze_model
 from object_detection_retinanet.utils.gpu import setup_gpu
 from object_detection_retinanet.utils.image import read_image_bgr, preprocess_image, resize_image
 
+import logging
+logging.basicConfig(level = logging.DEBUG)
+
 Inputs = container.pandas.DataFrame
 Outputs = container.pandas.DataFrame
 
@@ -338,7 +341,9 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
         
         If no weight file is provided, the default is to use the ImageNet weights.
         """
-
+        
+        logging.debug('This will get logged')
+        
         # Create object that stores backbone information
         self.backbone = models.backbone(self.hyperparams['backbone'])
 
@@ -381,9 +386,6 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
 
         start_time = time.time()
         print('Starting training...', file = sys.__stdout__)
-
-        #sample = next(train_generator)
-        #print(sample, file = __sys.stdout__)
 
         self.training_model.fit_generator(
             generator = train_generator,
