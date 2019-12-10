@@ -10,9 +10,6 @@ import tensorflow as tf
 import pandas as pd
 import numpy as np
 
-from tensorflow.python.framework.ops import disable_eager_execution
-disable_eager_execution()
-
 from object_detection_retinanet import layers  
 from object_detection_retinanet import losses
 from object_detection_retinanet import models
@@ -33,9 +30,6 @@ from object_detection_retinanet.utils.anchors import make_shapes_callback
 from object_detection_retinanet.utils.model import freeze as freeze_model
 from object_detection_retinanet.utils.gpu import setup_gpu
 from object_detection_retinanet.utils.image import read_image_bgr, preprocess_image, resize_image
-
-import logging
-logging.basicConfig(level = logging.DEBUG)
 
 Inputs = container.pandas.DataFrame
 Outputs = container.pandas.DataFrame
@@ -342,13 +336,13 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
         If no weight file is provided, the default is to use the ImageNet weights.
         """
         
-        logging.debug('This will get logged')
-        
         # Create object that stores backbone information
         self.backbone = models.backbone(self.hyperparams['backbone'])
 
         # Create the generators
         train_generator = CSVGenerator(self.annotations, self.classes, self.base_dir, self.hyperparams['batch_size'], self.backbone.preprocess_image)
+
+        logger.debug(train_generator)
 
         # Running the model
         ## Assign weights
@@ -446,7 +440,7 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
             image = preprocess_image(image)
             image, scale = resize_image(image)
 
-            boxes, scores, labels = inference_model.predict_on_batch(np.expand_dims(image, axis = 0))
+            boxes, scores, labels = inference_model.predict_on_batch(tf.constant(np.expand_dims(image, axis = 0), dtype = tf.float32))
 
             # correct for image scale
             boxes /= scale
