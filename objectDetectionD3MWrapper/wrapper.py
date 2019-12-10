@@ -41,17 +41,17 @@ class Hyperparams(hyperparams.Hyperparams):
                 default = 'resnet50',
                 semantic_types = ['https://metadata.datadrivendiscovery.org/types/TuningParameter'],
                 description = "Backbone architecture from resnet50 architecture (https://arxiv.org/abs/1512.03385)"
-            ),
-            'resnet101': hyperparams.Constant[str](
-                default = 'resnet101',
-                semantic_types = ['https://metadata.datadrivendiscovery.org/types/TuningParameter'],
-                description = "Backbone architecture from resnet101 architecture (https://arxiv.org/abs/1512.03385)"
-            ),
-            'resnet152': hyperparams.Constant[str](
-                default = 'resnet152',
-                semantic_types = ['https://metadata.datadrivendiscovery.org/types/TuningParameter'],
-                description = "Backbone architecture from resnet152 architecture (https://arxiv.org/abs/1512.03385)"
             )
+            # 'resnet101': hyperparams.Constant[str](
+            #     default = 'resnet101',
+            #     semantic_types = ['https://metadata.datadrivendiscovery.org/types/TuningParameter'],
+            #     description = "Backbone architecture from resnet101 architecture (https://arxiv.org/abs/1512.03385)"
+            # ),
+            # 'resnet152': hyperparams.Constant[str](
+            #     default = 'resnet152',
+            #     semantic_types = ['https://metadata.datadrivendiscovery.org/types/TuningParameter'],
+            #     description = "Backbone architecture from resnet152 architecture (https://arxiv.org/abs/1512.03385)"
+            # )
         }),
         default = 'resnet50',
         semantic_types = ['https://metadata.datadrivendiscovery.org/types/TuningParameter'],
@@ -136,10 +136,8 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
             'file_digest': "0128cdfa3963288110422e4c1a57afe76aa0d760eb706cda4353ef1432c31b9c" 
             }
         ],
-        #'algorithm_types': [metadata_base.PrimitiveAlgorithmType.RETINANET_CONVOLUTIONAL_NEURAL_NETWORK],
         'algorithm_types': [metadata_base.PrimitiveAlgorithmType.CONVOLUTIONAL_NEURAL_NETWORK],
-        #'primitive_family': metadata_base.PrimitiveFamily.OBJECT_DETECTION
-        'primitive_family': metadata_base.PrimitiveFamily.DIGITAL_IMAGE_PROCESSING,
+        'primitive_family': metadata_base.PrimitiveFamily.OBJECT_DETECTION,
         }
     )
  
@@ -341,8 +339,6 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
 
         # Create the generators
         train_generator = CSVGenerator(self.annotations, self.classes, self.base_dir, self.hyperparams['batch_size'], self.backbone.preprocess_image)
-
-        logger.debug(train_generator)
 
         # Running the model
         ## Assign weights
