@@ -1,2 +1,0 @@
-numpy>=1.14.0
-object_detection_retinanet@ git+https://github.com/NewKnowledge/object-detection-retinanet@48d70841d51ff44754f355f9157d0bf454aec736#egg=object_detection_retinanet
