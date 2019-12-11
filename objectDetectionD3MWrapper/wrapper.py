@@ -117,7 +117,7 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
         'python_path': 'd3m.primitives.object_detection.retinanet',
         'keywords': ['object detection', 'convolutional neural network', 'digital image processing', 'RetinaNet'],
         'source': {
-            'name': 'Sanjeev Namjoshi',
+            'name': 'Distil',
             'contact': 'mailto:sanjeev@yonder.co',
             'uris': [
                 'https://github.com/NewKnowledge/object-detection-d3m-wrapper',
