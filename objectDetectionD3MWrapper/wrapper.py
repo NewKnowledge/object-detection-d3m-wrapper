@@ -114,7 +114,7 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
         'id': 'd921be1e-b158-4ab7-abb3-cb1b17f42639',
         'version': '0.1.0',
         'name': 'retina_net',
-        'python_path': 'd3m.primitives.object_detection.retinanet_convolutional_neural_network',
+        'python_path': 'd3m.primitives.object_detection.retinanet',
         'keywords': ['object detection', 'convolutional neural network', 'digital image processing', 'RetinaNet'],
         'source': {
             'name': 'Sanjeev Namjoshi',
