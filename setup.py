@@ -11,7 +11,7 @@ setup(
                          'object_detection_retinanet @ git+https://github.com/NewKnowledge/object-detection-retinanet@beca7ff86faa2295408e46fe221a3c7437cfdc81#egg=object_detection_retinanet'],                        
     entry_points      = {
         'd3m.primitives': [
-            'object_detection.retinanet_convolutional_neural_network = objectDetectionD3MWrapper:ObjectDetectionRNPrimitive'
+            'object_detection.retinanet = objectDetectionD3MWrapper:ObjectDetectionRNPrimitive'
         ],
     },
 )
