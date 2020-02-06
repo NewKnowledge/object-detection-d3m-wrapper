@@ -486,6 +486,8 @@ class ObjectDetectionRNPrimitive(PrimitiveBase[Inputs, Outputs, Params, Hyperpar
             # Sort results_df.
             empty_predictions_df = self._fill_empty_predictions(empty_predictions_image_names, d3mIdx_image_mapping)
             results_df = pd.concat([results, empty_predictions_df]).sort_values('d3mIndex')
+        else:
+            results_df = results
 
         # Convert to DataFrame container
         results_df = d3m_DataFrame(results_df)
